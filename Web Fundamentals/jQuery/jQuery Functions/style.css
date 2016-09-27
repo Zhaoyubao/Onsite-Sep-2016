@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    color: #3C4C5B;
+}
+div#wrapper {
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+    h1#title {
+        font-size: 1.7em;
+        text-decoration: underline;
+        margin-bottom: 20px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 1.1em;
+        text-align: center;
+        margin: 6px 0;
+    }
+    p.blue {
+        color: #009ac7;
+        font-weight: bold;
+    }
+    button {
+        color: white;
+        background-color: #009ac7;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        box-shadow: 1px 1px 2px silver;
+        padding: 3px 6px;
+        margin-right: 5px;
+        margin-bottom: 15px;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: #007394;
+    }
+    input {
+        width: 150px;
+        color: #007db8;
+        font-size: 1.1em;
+        border: 1px solid #007db8;
+        border-radius: 2px;
+        outline: none;
+        margin-right: 10px;
+        padding: 4px 6px;
+    }
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 100px #fff inset;
+    }
+    hr {
+        border: 1px solid silver;
+        margin: 15px 0 25px;
+    }
+    span#val, span#data {
+        color: #007db8;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    span#val {
+        width: 200px;
+        display: inline-block;
+    }
+    p#textHtml {
+        height: 60px;
+        overflow: auto;
+        word-wrap: break-word;
+        padding: 10px;
+    }
+    span#focus {
+        color: orangered;
+        font-size: 1em;
+        font-weight: bold;
+        display: none;
+    }
+    div#content p#content {
+            width: 450px;
+            height: 100px;
+            overflow: auto;
+            word-wrap: break-word;
+            outline: 1px dashed gray;
+        }
+    div#content p.add {
+        color: #007db8;
+    }
+    img {
+        width: 450px;
+        margin: 20px 0;
+        display: block;
+    }

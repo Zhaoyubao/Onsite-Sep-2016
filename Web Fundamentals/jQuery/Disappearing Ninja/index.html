@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery!</title>
+	<meta name="description" content="Disappearing Ninja">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("img").click(function(){
+				$(this).fadeOut(400);
+			});
+			$("button").click(function(){
+				$("img").fadeIn(600);
+			});
+  		});
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+    	<h2>jQuery - Disappearing Heroes</h2>
+    	<img id="hero1" src="img/1.jpg">
+    	<img id="hero2" src="img/2.jpg"">
+    	<img id="hero3" src="img/3.jpg">
+    	<img id="hero4" src="img/4.jpg">
+    	<img id="hero5" src="img/5.jpg">
+    	<img id="hero6" src="img/6.jpg">
+    	<img id="hero7" src="img/7.jpg">
+    	<img id="hero8" src="img/8.jpg">
+    	<button>Restore!</button>
+    </div>
+</body>
+</html>

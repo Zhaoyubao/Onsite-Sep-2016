@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Advanced jQuery Assignment">
+	<title>Adding a User with jQuery</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#addUser').click(function() {
+				var first = $('#first').val();
+				var last = $('#last').val();
+				var email = $('#email').val();
+				var phone = $('#contact').val();
+				if(first.split(" ").join("") && last.split(" ").join("") && email.split(" ").join("") && phone.split(" ").join("")) {
+					var newuser = '<tr><td>' + first + '</td><td>' + last + '</td><td>' + email + '</td><td>' + phone + '</td></tr>';
+					$("#table").append(newuser);
+					$("input[type='text']").val('');
+				}
+				else alert("Input field can't be blank!");
+				return false;
+			});
+			$('#reset').click(function() {
+				$("#table").html("");
+			});
+  		});
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+    	<table>
+    		<thead>
+    			<tr>
+    				<th width="150">First Name</th>
+    				<th width="150">Last Name</th>
+    				<th width="200">Email Address</th>
+    				<th width="150">Contact#</th>
+    			</tr>
+    		</thead>
+    		<tbody id="table">
+    		</tbody>
+    	</table>
+    	<form>
+    		<h1>Add User</h1>
+    		<label for="first">First Name:</label>
+    		<input id="first" type="text" placeholder="First Name">
+    		<label for="last">Last Name:</label>
+    		<input id="last" type="text" placeholder="Last Name">
+    		<label for="email">Email Address:</label>
+    		<input id="email" type="text" placeholder="Email Address">
+    		<label for="contact">Contact No.:</label>
+    		<input id="contact" type="text" placeholder="Phone #">
+    		<button id="reset">Reset</button>
+    		<button id="addUser">Add User</button>
+    	</form>
+    </div>
+</body>
+</html>

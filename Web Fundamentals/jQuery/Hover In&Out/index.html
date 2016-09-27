@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="jQuery Assignment">
+	<title>Hover In/Out</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+	    div#wrapper {
+			width: 570px;
+			font-family: arial;
+			margin: 20px auto;
+		}
+		h2 {
+			margin-bottom: 20px;
+		}
+		img {
+			width: 250px;
+			height: 250px;
+			border: 1px solid silver;
+			cursor: pointer;
+			margin: 15px;
+			display: inline-block;
+		}
+		img:hover {
+			box-shadow: 1px 1px 2px gray;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("img").hover(function(){
+				var newSrc = $(this).attr("alt");
+				var newAlt = $(this).attr("src");
+				$(this).attr("src",newSrc);
+				$(this).attr("alt",newAlt);
+			})
+  		})
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+    	<h2>jQuery - Hover In/Out</h2>
+    	<img src="img/1.jpg" alt="img/5.jpg">
+    	<img src="img/2.jpg" alt="img/6.jpg">
+    	<img src="img/3.jpg" alt="img/7.jpg">
+    	<img src="img/4.jpg" alt="img/8.jpg">
+    </div>
+</body>
+</html>
