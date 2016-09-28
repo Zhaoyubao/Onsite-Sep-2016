@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="jQuery Assignment">
+	<title>Date Validations</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/redmond/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	<script type="text/javascript">
+  		$(document).ready(function(){
+  			$(".date").datepicker();
+  			$("button").click(function(){
+  				var depart = $('#date_depart').val();
+  			    var arrive = $('#date_arrive').val();
+  			    var name = $('#name').val();
+				$("p.error").text("");
+  				if (depart == '' || arrive == '' || name.split(" ").join("") == '') {
+  					$(this).css('background-color','#da1a36');
+  				}
+  				if (depart == '') {
+  					$('#from_err').text("From Date can't be blank!");
+  				}
+  				if (arrive == '') {
+  					$('#to_err').text("To Date can't be blank!");
+  				}
+  				if (name == '') {
+  					$('#name_err').text("Your name can't be blank!");
+  				}
+  				if (depart !== '' && arrive !== '' && name.split(" ").join("") !== '') {
+					if(arrive < depart) $('#to_err').text("To Date is invalid!");
+					else {
+						$(this).css('background-color','#0c7ab9');
+	  					$("#dialog").dialog();
+	  					$("#dialog").html('Thanks <b>' + name + '</b>! Your Cruise leaves on <b>' + depart + '</b> and returns on <b>' + arrive + '</b>!');
+						$("input").val("");
+					}
+				}
+  			});
+  		})
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+    	<h1>Welcome to the Codingdojo plan-a-Cruise!</h1>
+    	<label>From:
+    		<input type="text" class='date' id="date_depart">
+		</label>
+    	<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To:
+    		<input type="text" class='date' id="date_arrive">
+		</label>
+    	<label>Name:
+    		<input type="text" id="name">
+		</label>
+    	<button>Check Dates!</button>
+    	<p class="error" id="from_err"></p>
+    	<p class="error" id="to_err"></p>
+    	<p class="error" id="name_err"></p>
+    	<p id="dialog" title="Your itinerary">
+    	</p>
+    </div>
+</body>
+</html>
