@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    $(document).ready(function(){
+        $("button#user").click(function() {
+            var first = $('#first').val();
+            var last = $('#last').val();
+            var description = $('#description').val();
+            if(first.split(" ").join("") && last.split(" ").join("") && description.split(" ").join("")) {
+                var card = '<div class="card"><div class="front"><b>'+first+' '+last+'</b><span>Click for description!</span></div><div class="back"><p class="desc">'+description+'</p><span>Click for username!</span></div></div>'
+                $("#cards").append(card);
+                $("input, textarea").val("");
+            }
+            else alert("Input field can't be blank!");
+        });
+        $("button#reset").click(function() {
+            $("#cards").html("");
+            $("input, textarea").val("");
+        });
+        $("div#cards").on("click",".card",function() {
+            $("div", this).toggle();
+        });
+    })
+    </script>
+</head>
+<body>
+    <div id="addUser">
+        <label for="first">First name:</label>
+        <input type="text" id="first">
+        <label for="last">Last name:</label>
+        <input type="text" id="last">
+        <p>Desctiption</p>
+        <textarea id="description" placeholder="Enter description"></textarea>
+        <button id="user">Add User</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="cards">
+    </div>
+</body>
+</html>
