@@ -14,18 +14,36 @@
             var last = $('#last').val();
             var description = $('#description').val();
             if(first.split(" ").join("") && last.split(" ").join("") && description.split(" ").join("")) {
-                var card = '<div class="card"><div class="front"><b>'+first+' '+last+'</b><span>Click for description!</span></div><div class="back"><p class="desc">'+description+'</p><span>Click for username!</span></div></div>'
-                $("#cards").append(card);
-                $("input, textarea").val("");
+                var htmlStr = '<div class="card">';
+                htmlStr += '<b>'+first+' '+last+'</b>';
+                htmlStr += '<span>Click for description!</span>';
+                htmlStr += '<p class="desc">'+description+'</p><span class="detail">Click for username!</span></div>';
+                $("#cards").append(htmlStr);
+                $("input#first, input#last, textarea").val("");
             }
             else alert("Input field can't be blank!");
+        });
+        $("button#github").click(function() {
+            var url = 'https://api.github.com/users/'+ $('#username').val();
+            $.get(url, function(res) {
+                console.log(res);
+                var htmlStr = "<div class='github'>";
+				htmlStr += "<img src='" + res.avatar_url + "'>";
+				htmlStr += `<b> ${res.name} </b>`;
+				// htmlStr += "<b>" + res.name +"</b>";
+                htmlStr += '<span>Click for description!</span>';
+				htmlStr += '<p class="desc">' + res.bio + '</p>';
+				htmlStr += '<span class="detail">Click for username!</span></div>';
+				$("#cards").append(htmlStr);
+                $("input#username").val("");
+			})
         });
         $("button#reset").click(function() {
             $("#cards").html("");
             $("input, textarea").val("");
         });
-        $("div#cards").on("click",".card",function() {
-            $("div", this).toggle();
+        $("div#cards").on("click", ".card, .github", function() {
+            $(this).children().toggle();
         });
     })
     </script>
@@ -40,6 +58,9 @@
         <textarea id="description" placeholder="Enter description"></textarea>
         <button id="user">Add User</button>
         <button id="reset">Reset</button>
+        <label for="username">Github username:</label>
+        <input type="text" id="username">
+        <button id="github">Search Github</button>
     </div>
     <div id="cards">
     </div>
